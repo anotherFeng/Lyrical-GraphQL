@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
 import ReactDOM from 'react-dom';
-import ApolloClient from "apollo-client";
+import ApolloClient from "apollo-boost";
 import { ApolloProvider } from "react-apollo";
+import { InMemoryCache } from "apollo-cache-inmemory";
 import { Router, Route, hashHistory, IndexRoute} from 'react-router';
 import './style/style.css'
 
@@ -10,7 +11,9 @@ import SongList from './components/SongList.jsx';
 import SongCreate from './components/SongCreate.jsx';
 import SongDetails from './components/SongDetail.jsx';
 
-const client = new ApolloClient({});
+const client = new ApolloClient({
+  cache: new InMemoryCache()
+});
 
 const Root = () => {
 
