@@ -12,6 +12,7 @@ import SongCreate from './components/SongCreate.jsx';
 import SongDetails from './components/SongDetail.jsx';
 
 const client = new ApolloClient({
+  dataIdFromObject: o => o.id,
   cache: new InMemoryCache()
 });
 
